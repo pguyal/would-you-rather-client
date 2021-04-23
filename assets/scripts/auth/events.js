@@ -38,19 +38,22 @@ const onChangePassword = function (event) {
 
 const onChangePasswordBtn = function (event) {
   event.preventDefault()
-  $('#change-pw-button').hide()
+  $('#change-pw-btn').hide()
   $('#sign-out').hide()
+  $('#create-question-btn').hide()
   $('#change-password').show()
-  $('#return').show()
+  $('#change-password-return').show()
 }
 
-const onReturn = function (event) {
+const onChangePasswordReturn = function (event) {
   event.preventDefault()
-  $('#change-password').hide()
   $('form').trigger('reset')
+  $('#create-question').hide()
+  $('#change-password').hide()
+  $('#change-password-return').hide()
+  $('#create-question-btn').show()
   $('#change-pw-button').show()
   $('#sign-out').show()
-  $('#return').hide()
 }
 
 module.exports = {
@@ -59,5 +62,5 @@ module.exports = {
   onSignOut,
   onChangePassword,
   onChangePasswordBtn,
-  onReturn
+  onChangePasswordReturn
 }

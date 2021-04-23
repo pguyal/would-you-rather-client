@@ -6,7 +6,7 @@ const onSignUpSuccess = function () {
   setTimeout(() => {
     $('#message').text('')
     $('#message').removeClass('success')
-  }, 2000)
+  }, 1000)
   $('form').trigger('reset')
 }
 
@@ -17,8 +17,9 @@ const onSignInSuccess = function (response) {
   setTimeout(() => {
     $('#message').text('')
     $('#message').removeClass('success')
-  }, 2000)
+  }, 1000)
   $('form').trigger('reset')
+  $('#create-question-btn').show()
   $('#sign-out').show()
   $('#change-pw-button').show()
   $('#sign-up').hide()
@@ -31,10 +32,10 @@ const onChangePasswordSuccess = function () {
   setTimeout(() => {
     $('#message').text('')
     $('#message').removeClass('success')
-  }, 2000)
+  }, 1000)
   $('form').trigger('reset')
   $('#change-password').hide()
-  $('#return').hide()
+  $('#change-password-return').hide()
   $('#change-pw-button').show()
   $('#sign-out').show()
 }
@@ -46,8 +47,9 @@ const onSignOutSuccess = function () {
   setTimeout(() => {
     $('#message').text('')
     $('#message').removeClass('success')
-  }, 2000)
+  }, 1000)
   $('form').trigger('reset')
+  $('#create-question-btn').hide()
   $('#change-pw-button').hide()
   $('#sign-out').hide()
   $('#sign-up').show()
