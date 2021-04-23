@@ -5,10 +5,11 @@ const getFormFields = require('../../../lib/get-form-fields')
 const onCreateQuestionBtn = function (event) {
   event.preventDefault()
   $('#create-question-btn').hide()
-  $('#change-pw-button').hide()
+  $('#view-question').hide()
+  $('#change-pw-btn').hide()
   $('#sign-out').hide()
   $('#create-question').show()
-  $('#create-question-return').show()
+  $('#question-return').show()
 }
 
 const onCreateQuestion = function (event) {
@@ -17,21 +18,32 @@ const onCreateQuestion = function (event) {
   const formData = getFormFields(form)
   api.createQuestion(formData)
     .then(ui.onCreateQuestionSuccess)
-    .catch(ui.onCreateQuestionFailure)
+    .catch(ui.onQuestionError)
 }
 
-const onCreateQuestionReturn = function (event) {
+const onQuestionReturn = function (event) {
   event.preventDefault()
   $('form').trigger('reset')
   $('#create-question-btn').show()
-  $('#change-pw-button').show()
+  $('#view-question').show()
+  $('#change-pw-btn').show()
   $('#sign-out').show()
   $('#create-question').hide()
-  $('#create-question-return').hide()
+  $('#question-return').hide()
+  $('#questions-display').hide()
+}
+
+const onViewQuestion = function () {
+  $('#question-return').show()
+  $('#questions-display').show()
+  api.viewQuestion()
+    .then(ui.onViewQuestionSuccess)
+    .catch(ui.onQuestionError)
 }
 
 module.exports = {
   onCreateQuestionBtn,
   onCreateQuestion,
-  onCreateQuestionReturn
+  onQuestionReturn,
+  onViewQuestion
 }

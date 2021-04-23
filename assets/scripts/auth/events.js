@@ -41,6 +41,7 @@ const onChangePasswordBtn = function (event) {
   $('#change-pw-btn').hide()
   $('#sign-out').hide()
   $('#create-question-btn').hide()
+  $('#view-question').hide()
   $('#change-password').show()
   $('#change-password-return').show()
 }
@@ -52,7 +53,8 @@ const onChangePasswordReturn = function (event) {
   $('#change-password').hide()
   $('#change-password-return').hide()
   $('#create-question-btn').show()
-  $('#change-pw-button').show()
+  $('#view-question').show()
+  $('#change-pw-btn').show()
   $('#sign-out').show()
 }
 

@@ -20,8 +20,9 @@ const onSignInSuccess = function (response) {
   }, 1000)
   $('form').trigger('reset')
   $('#create-question-btn').show()
+  $('#view-question').show()
+  $('#change-pw-btn').show()
   $('#sign-out').show()
-  $('#change-pw-button').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
 }
@@ -36,7 +37,9 @@ const onChangePasswordSuccess = function () {
   $('form').trigger('reset')
   $('#change-password').hide()
   $('#change-password-return').hide()
-  $('#change-pw-button').show()
+  $('#create-question-btn').show()
+  $('#view-question').show()
+  $('#change-pw-btn').show()
   $('#sign-out').show()
 }
 
@@ -50,7 +53,8 @@ const onSignOutSuccess = function () {
   }, 1000)
   $('form').trigger('reset')
   $('#create-question-btn').hide()
-  $('#change-pw-button').hide()
+  $('#change-pw-btn').hide()
+  $('#view-question').hide()
   $('#sign-out').hide()
   $('#sign-up').show()
   $('#sign-in').show()

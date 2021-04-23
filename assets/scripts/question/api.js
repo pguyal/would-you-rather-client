@@ -12,6 +12,17 @@ const createQuestion = function (formData) {
   })
 }
 
+const viewQuestion = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/questions',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  createQuestion
+  createQuestion,
+  viewQuestion
 }

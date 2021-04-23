@@ -2,26 +2,44 @@ const store = require('../store')
 
 const onCreateQuestionSuccess = function (response) {
   store.question = response.question
-  $('#create-question-message').text('Question created successfully')
-  $('#create-question-message').addClass('success')
+  $('#question-message').text('Question created successfully')
+  $('#question-message').addClass('success')
   setTimeout(() => {
-    $('#create-question-message').text('')
-    $('#create-question-message').removeClass('success')
+    $('#question-message').text('')
+    $('#question-message').removeClass('success')
   }, 5000)
   $('form').trigger('reset')
 }
 
-const onCreateQuestionFailure = function () {
-  $('#create-question-message').text('Something went wrong, please try again later')
-  $('#create-question-message').addClass('failure')
+const onQuestionError = function () {
+  $('#question-message').text('Something went wrong, please try again later')
+  $('#question-message').addClass('failure')
   setTimeout(() => {
-    $('#create-question-message').text('')
-    $('#create-question-message').removeClass('failure')
+    $('#question-message').text('')
+    $('#question-message').removeClass('failure')
   }, 5000)
   $('form').trigger('reset')
+}
+
+const onViewQuestionSuccess = function (response) {
+  $('#create-question-btn').hide()
+  $('#sign-out').hide()
+  $('#change-pw-btn').hide()
+  $('#view-question').hide()
+  const questions = response.questions
+  let questionsHtml = ''
+  questions.forEach(question => {
+    questionsHtml += `
+    <h4>Question: ${question.text}</h4>
+    <p>Option one: ${question.option_one}</p>
+    <p>Option two: ${question.option_two}</p>
+    `
+  })
+  $('#questions-display').html(questionsHtml)
 }
 
 module.exports = {
   onCreateQuestionSuccess,
-  onCreateQuestionFailure
+  onQuestionError,
+  onViewQuestionSuccess
 }
