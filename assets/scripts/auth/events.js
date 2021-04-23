@@ -46,7 +46,7 @@ const onChangePasswordBtn = function (event) {
 
 const onReturn = function (event) {
   event.preventDefault()
-  $('#change-pw-form').hide()
+  $('#change-password').hide()
   $('form').trigger('reset')
   $('#change-pw-button').show()
   $('#sign-out').show()
