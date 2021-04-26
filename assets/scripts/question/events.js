@@ -41,9 +41,19 @@ const onViewQuestion = function () {
     .catch(ui.onQuestionError)
 }
 
+const onDynamicDestroyQuestion = function (event) {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  api.destroyQuestion(id)
+    .then(onViewQuestion)
+    .then(ui.onDestroyQuestionSuccess)
+    .catch(ui.onQuestionError)
+}
+
 module.exports = {
   onCreateQuestionBtn,
   onCreateQuestion,
   onQuestionReturn,
-  onViewQuestion
+  onViewQuestion,
+  onDynamicDestroyQuestion
 }
