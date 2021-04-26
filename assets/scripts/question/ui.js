@@ -7,7 +7,7 @@ const onCreateQuestionSuccess = function (response) {
   setTimeout(() => {
     $('#question-message').text('')
     $('#question-message').removeClass('success')
-  }, 3000)
+  }, 1000)
   $('form').trigger('reset')
 }
 
