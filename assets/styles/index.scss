@@ -1,0 +1,38 @@
+@import '~bootstrap/scss/bootstrap';
+
+h1 {
+  margin: 20px;
+}
+
+body {
+  background: #41bebd;
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+}
+
+.auth {
+  input {
+    display: inline-block;
+    margin: 5px;
+    width: 50%;
+}
+}
+
+.question-box {
+  display: inline-block;
+  margin: 5px;
+  text-align: left;
+  width: 50%;
+}
+
+.options,
+.pw-input {
+  display: block;
+  margin: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
