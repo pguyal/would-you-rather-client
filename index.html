@@ -16,6 +16,7 @@
       <h1>Would You Rather...</h1>
 
       <p id="message"></p>
+      <p id="question-message"></p>
 
       <form id="sign-up" class="form">
         <h4>Sign Up</h4>
@@ -44,6 +45,7 @@
         <button id="change-pw-btn">Change Password</button>
       </div>
 
+
       <form id="create-question" class="form">
         <input name="question[text]" type="text" placeholder="Enter Your Question Here" required>
         <input name="question[option_one]" type="text" placeholder="Enter First Option" required>
@@ -57,10 +59,9 @@
         <button class="change-password" type="submit" value="Change Password">Change Password</button>
       </form>
 
-      <p id="question-message"></p>
 
       <div>
-        <button id="question-return">Question Return</button>
+        <button id="question-return">Return to Main Menu</button>
       </div>
 
       <div>
@@ -73,6 +74,7 @@
 
       <section>
         <div id="questions-display"></div>
+        <h4 id="question-delete-message"></h4>
       </section>
 
     </body>
