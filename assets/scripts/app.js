@@ -27,4 +27,7 @@ $(() => {
   $('#create-question').on('submit', questionEvents.onCreateQuestion)
   $('#view-question').on('click', questionEvents.onViewQuestion)
   $('#questions-display').on('click', '.questions-destroy-dynamic', questionEvents.onDynamicDestroyQuestion)
+  $('#questions-display').on('click', '.question-edit', questionEvents.onQuestionEdit)
+  $('#questions-display').on('click', '.question-edit-return', questionEvents.onQuestionEditReturn)
+  $('#questions-display').on('submit', '.questions-update-dynamic', questionEvents.onDynamicUpdateQuestion)
 })

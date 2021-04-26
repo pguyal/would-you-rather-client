@@ -18,7 +18,7 @@
       <p id="message"></p>
       <p id="question-message"></p>
 
-      <form id="sign-up" class="form">
+      <form id="sign-up" class="form auth">
         <h4>Sign Up</h4>
         <input name="credentials[email]" type="email" placeholder="Enter Email" required>
         <input name="credentials[password]" type="password" placeholder="Enter Password" required>
@@ -26,7 +26,7 @@
         <input type="submit" value="Sign Up"/>
       </form>
 
-      <form id="sign-in" class="form">
+      <form id="sign-in" class="form auth">
         <h4>Sign In</h4>
         <input name="credentials[email]" type="email" placeholder="Enter Email" required>
         <input name="credentials[password]" type="password" placeholder="Enter Password" required>
@@ -47,15 +47,15 @@
 
 
       <form id="create-question" class="form">
-        <input name="question[text]" type="text" placeholder="Enter Your Question Here" required>
-        <input name="question[option_one]" type="text" placeholder="Enter First Option" required>
-        <input name="question[option_two]" type="text" placeholder="Enter Second Option" required>
+        <input class="question-box" name="question[text]" type="text" placeholder="Enter Your Question Here" required>
+        <input class="options" name="question[option_one]" type="text" placeholder="Enter First Option" required>
+        <input class="options" name="question[option_two]" type="text" placeholder="Enter Second Option" required>
         <button class="create-question" type="submit" value="Create Question">Create Question</button>
       </form>
 
       <form id="change-password" class="form">
-        <input name="passwords[old]" type="password" placeholder="Enter Old Password" required>
-        <input name="passwords[new]" type="password" placeholder="Enter New Password" required>
+        <input class="pw-input" name="passwords[old]" type="password" placeholder="Enter Old Password" required>
+        <input class="pw-input" name="passwords[new]" type="password" placeholder="Enter New Password" required>
         <button class="change-password" type="submit" value="Change Password">Change Password</button>
       </form>
 
@@ -72,10 +72,12 @@
         <button id="sign-out">Sign Out</button>
       </div>
 
-      <br>
-      <p id="question-delete-message"></p>
 
       <section>
+        <br>
+        <p id="question-view-message"></p>
+        <p id="question-delete-message"></p>
+        <p id="question-update-message"></p>
         <div id="questions-display"></div>
       </section>
 

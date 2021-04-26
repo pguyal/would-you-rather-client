@@ -24,6 +24,7 @@ const onCreateQuestion = function (event) {
 const onQuestionReturn = function (event) {
   event.preventDefault()
   $('form').trigger('reset')
+  $('#question-view-message').text('')
   $('#create-question-btn').show()
   $('#view-question').show()
   $('#change-pw-btn').show()
@@ -50,10 +51,40 @@ const onDynamicDestroyQuestion = function (event) {
     .catch(ui.onQuestionError)
 }
 
+const onQuestionEdit = function (event) {
+  event.preventDefault()
+  $('.questions-destroy-dynamic').hide()
+  $('.question-edit').hide()
+  $('.questions-update-dynamic').show()
+  $('.question-edit-return').show()
+}
+
+const onQuestionEditReturn = function (event) {
+  event.preventDefault()
+  $('.questions-update-dynamic').hide()
+  $('.question-edit-return').hide()
+  $('.questions-destroy-dynamic').show()
+  $('.question-edit').show()
+}
+
+const onDynamicUpdateQuestion = function (event) {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  const form = event.target
+  const formData = getFormFields(form)
+  api.updateQuestion(id, formData)
+    .then(onViewQuestion)
+    .then(ui.onUpdateQuestionSuccess)
+    .catch(ui.onQuestionError)
+}
+
 module.exports = {
   onCreateQuestionBtn,
   onCreateQuestion,
   onQuestionReturn,
   onViewQuestion,
-  onDynamicDestroyQuestion
+  onDynamicDestroyQuestion,
+  onQuestionEdit,
+  onQuestionEditReturn,
+  onDynamicUpdateQuestion
 }

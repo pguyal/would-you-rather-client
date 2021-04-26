@@ -32,8 +32,20 @@ const destroyQuestion = function (id) {
   })
 }
 
+const updateQuestion = function (id, formData) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/questions/' + id,
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createQuestion,
   viewQuestion,
-  destroyQuestion
+  destroyQuestion,
+  updateQuestion
 }

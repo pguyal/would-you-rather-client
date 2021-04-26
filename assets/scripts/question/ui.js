@@ -22,6 +22,7 @@ const onQuestionError = function () {
 }
 
 const onViewQuestionSuccess = function (response) {
+  $('#question-view-message').text('Here are your created questions:')
   $('#create-question-btn').hide()
   $('#sign-out').hide()
   $('#change-pw-btn').hide()
@@ -34,13 +35,22 @@ const onViewQuestionSuccess = function (response) {
     <h4>Question: ${question.text}</h4>
     <p>Option one: ${question.option_one}</p>
     <p>Option two: ${question.option_two}</p>
+    <button class="question-edit">Edit Question</button>
     <button class='questions-destroy-dynamic' data-id=${question._id}>
-        Delete Question
-      </button>
-    <hr>
+    Delete Question
+    </button>
+    <form class="questions-update-dynamic" data-id=${question._id}>
+    <input class="question-box" name="question[text]" type="text" placeholder="Enter Your Question Here" required>
+    <input class="options" name="question[option_one]" type="text" placeholder="Enter First Option" required>
+    <input class="options" name="question[option_two]" type="text" placeholder="Enter Second Option" required>
+      <button>Update Question</button>
+      </form>
+      <button class="question-edit-return">Return</button>
     `
   })
   $('#questions-display').html(questionsHtml)
+  $('.question-edit-return').hide()
+  $('.questions-update-dynamic').hide()
   // if (questionsHtml === ' ') {
   //   $('#questions-display').html('You have no questions!')
   // }
@@ -55,9 +65,19 @@ const onDestroyQuestionSuccess = function () {
   }, 3000)
 }
 
+const onUpdateQuestionSuccess = function () {
+  $('#question-update-message').text('Question updated successfully')
+  $('#question-update-message').addClass('success')
+  setTimeout(() => {
+    $('#question-update-message').text('')
+    $('#question-update-message').removeClass('success')
+  }, 3000)
+}
+
 module.exports = {
   onCreateQuestionSuccess,
   onQuestionError,
   onViewQuestionSuccess,
-  onDestroyQuestionSuccess
+  onDestroyQuestionSuccess,
+  onUpdateQuestionSuccess
 }
