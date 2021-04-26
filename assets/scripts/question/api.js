@@ -22,7 +22,18 @@ const viewQuestion = function () {
   })
 }
 
+const destroyQuestion = function (id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/questions/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createQuestion,
-  viewQuestion
+  viewQuestion,
+  destroyQuestion
 }
