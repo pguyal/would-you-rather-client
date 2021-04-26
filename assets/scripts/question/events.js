@@ -24,7 +24,10 @@ const onCreateQuestion = function (event) {
 const onQuestionReturn = function (event) {
   event.preventDefault()
   $('form').trigger('reset')
+  $('#question-message').text('')
   $('#question-view-message').text('')
+  $('#question-delete-message').text('')
+  $('#question-update-message').text('')
   $('#create-question-btn').show()
   $('#view-question').show()
   $('#change-pw-btn').show()
